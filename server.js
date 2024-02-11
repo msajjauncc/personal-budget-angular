@@ -2,8 +2,9 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const data = require("./budgetData.json");
+const cors = require("cors");
 
-app.use('/', express.static('public'));
+/*app.use('/', express.static('public'));*/
 const budget = {
     myBudget: [
     {
@@ -36,12 +37,13 @@ const budget = {
     },
 ]};
 
+app.use(cors());
 app.get('/hello', (req, res) => {
     res.send('Hello World!');
 })
 
 app.get('/budget', (req, res) => {
-    res.send(data);
+    res.json(budget);
 })
 
 app.listen(port, () => {
