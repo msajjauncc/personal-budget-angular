@@ -1,5 +1,7 @@
 <!--<p>article works!</p>-->
 <article>
     <ng-content select="h1"></ng-content>
-    <p><ng-content select="div" ngSkipHydration></ng-content></p>
+    <p>
+        <ng-content select="div" ngSkipHydration></ng-content>
+    </p>
 </article>
